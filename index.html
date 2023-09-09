@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>eva's page</title>
+ <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+ <!-- jQuery library -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <!-- Popper JS -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <!-- Latest compiled JavaScript -->
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<style>
+@keyframes changeColor {
+   from {color: red;}
+   to {color: blue;}
+  }
+  #name {
+   font-size: 36px;
+   animation: changeColor 3s infinite;
+  }
+  #intro {
+   font-size: 24px;
+   color: green;
+   text-shadow: 2px 2px 4px black;
+   animation: changeColor 4s infinite alternate;
+  }
+		/* 設定輪播容器 */
+		.slideshow-container {
+			max-width: 1000px;
+			position: relative;
+			margin: auto;
+		}
+
+		/* 隱藏所有圖片，除了第一張 */
+		.slideshow-container img {
+			display: none;
+		}
+		.slideshow-container img:first-child {
+			display: block;
+		}
+
+		/* 設定前/後按鈕樣式 */
+		.prev, .next {
+			cursor: pointer;
+			position: absolute;
+			top: 50%;
+			width: auto;
+			margin-top: -22px;
+			padding: 16px;
+			color: white;
+			font-weight: bold;
+			font-size: 18px;
+			transition: 0.6s ease;
+			border-radius: 0 3px 3px 0;
+			user-select: none;
+			background-color: rgba(0,0,0,0.5);
+		}
+
+		/* 設定下一張按鈕位置 */
+		.next {
+			right: 0;
+			border-radius: 3px 0 0 3px;
+		}
+
+		/* 鼠標移至按鈕上，變更背景顏色 */
+		.prev:hover, .next:hover {
+			background-color: rgba(0,0,0,0.8);
+		}
+	</style>
+ <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+    <a class="navbar-brand" href="#">My Website</a>
+   
+  <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+         <a class="nav-link" href="#home">Home</a>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link" href="https://replit.com/~">replit</a>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link" href="https://chat.openai.com/chat">chatgpt</a>
+      </li>
+    </ul>
+ </nav>
+<div>
+<h1 id="name">My name is 承恩</h1>
+ <p id="intro">I like travel and Disney+</p>
+</div>
+ <div class="container">
+  <div class="row">
+   <div class="col-sm-12">
+    <div class="slideshow-container">
+		<img src="abc.jpg" width="100%" alt="Disney+">
+		<img src="img/2.jpg" width="100%" alt="Kaohsiung">
+		<img src="img/3.jpg" width="100%" alt="Taipei">
+
+		<a class="prev">&#10094;</a>
+		<a class="next">&#10095;</a>
+	</div>
+   </div>
+  
+  </div>
+ </div>
+  <div class="col-sm-12" id="home">
+    <h2>Contact Me</h2>
+    <form>
+     <label>Name:</label>
+     <input type="text" class="form-control" placeholder="Enter name" value="YANO">
+     <label>Message:</label>
+     <textarea class="form-control" placeholder="Enter message"></textarea>
+     
+    </form>
+   </div>
+<script>
+		var slideIndex = 1;
+		showSlides(slideIndex);
+
+		function plusSlides(n) {
+			showSlides(slideIndex += n);
+		}
+
+		function showSlides(n) {
+			var i;
+			var slides = document.getElementsByTagName("img");
+			if (n > slides.length) {
+				slideIndex = 1
+			}
+			if (n < 1) {
+				slideIndex = slides.length
+			}
+			for (i = 0; i < slides.length; i++) {
+				slides[i].style.display = "none";
+			}
+			slides[slideIndex-1].style.display = "block";
+		}
+
+		/* 設定前/後按鈕點擊事件 */
+		document.querySelector(".prev").addEventListener("click", function() {
+			plusSlides(-1);
+		});
+		document.querySelector(".next").addEventListener("click", function() {
+			plusSlides(1);
+		});
+	</script>
+</body>
+</html>
